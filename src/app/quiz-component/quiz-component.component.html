@@ -1,0 +1,16 @@
+<div class="quiz-component">
+    <div *ngFor="let section of sections" [@section] >
+        <app-section-header [section]="section"></app-section-header>
+        <div *ngIf="section.active">
+            <app-questions 
+                (onNextSectionClick)="goToNextSection($event)" 
+                *ngIf="section.questions?.length > 0" 
+                [lastSection]="lastSection" 
+                [questions]="section.questions"
+                [currentQuestion]="currentQuestion"></app-questions>
+        </div>
+    </div>
+    <div *ngIf="resultSection">
+        <app-result-section></app-result-section>
+    </div>
+</div>

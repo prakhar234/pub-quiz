@@ -1,0 +1,5 @@
+<div class="quiz">
+    <h3 *ngIf="showLogin">Welcome to Pub Quiz - 1 against 60</h3>
+    <app-login [emailExists]="emailExists" *ngIf="showLogin"></app-login>
+    <app-quiz-component *ngIf="showQuiz">Quiz Component</app-quiz-component>
+</div>

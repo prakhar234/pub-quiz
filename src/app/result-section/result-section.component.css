@@ -1,0 +1,19 @@
+.score {
+    color: green;
+}
+
+.result-section .list {
+    list-style: none;
+}
+
+.result-section .winners{
+    font-size: 18px;
+    color: green;
+    font-weight: 700;
+}
+
+.result-section .losers{
+    font-size: 18px;
+    color: red;
+    font-weight: 700;
+}

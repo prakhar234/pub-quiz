@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <form class="form" (ngSubmit)="onSubmit()" #f="ngForm">
+                        <div id="userData">
+                            <div class="form-group">
+                                <label for="email">Enter your Deloitte E-mail Id:</label>
+                                <input placeholder="johndoe@john.nl" required email type="email" id="email" class="form-control" name="email" ngModel #email="ngModel"/>
+                                <p class="error-message" *ngIf="email && email.touched && email.errors?.required">Please enter your Deloitte e-email address!!</p>
+                                <p class="error-message" *ngIf="email && email.touched && email.errors?.email">Please enter Deloitte email in correct format!!</p>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Enter your Name:</label>
+                                <input placeholder="John Doe" required minlength="2" type="text" id="name" name="name" class="form-control" ngModel #name="ngModel"/>
+                                <p class="error-message" *ngIf="name && name.touched && name.errors?.required">Please enter your Name!!</p>
+                                <p class="error-message" *ngIf="name && name.touched && name.errors?.minlength">Name must be atleast 2 characters!!</p>
+                            </div>
+                            <div class="form-group">
+                                <p class="error-message" *ngIf="emailExists">Email already exists, please try with different email id.</p>
+                            </div>
+                            <hr/>
+                            <button *ngIf="f.form.valid" type="submit" class="btn btn-primary">Enter</button>
+                            <button *ngIf="f.form.invalid" [disabled]="f.form.invalid" type="button" class="btn btn-primary">Enter</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+
+input {
+    height: 40px;
+}
+input.ng-invalid.ng-touched {
+    border: 1px solid red;
+    color: red;
+}
+input:hover,
+input:active,
+input:focus {
+    transform: scaleY(1.2);
+    transition: all 0.3s linear;
+}
+
+.form-group p.error-message {
+    font-size: 12px;
+    color: red;
+    margin-top: 8px;
+}

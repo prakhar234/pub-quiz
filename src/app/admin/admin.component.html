@@ -1,0 +1,50 @@
+<div class="container admin-pages">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+            <div class="panel panel-default" *ngFor="let section of sections">
+                <div class="panel-body">
+                    <form class="form" (ngSubmit)="onSubmit(section)" #f="ngForm">
+
+                        <h3>{{section.name}}</h3>
+                        <h4>Update questions</h4>
+                        <hr/>    
+                        <div class *ngFor="let question of section.questions; let i = index">
+                            <h4>{{i + 1 + ". "}}{{question.question}}? </h4>
+                            <h5>Do you want to activate Next Question: Current - {{question.activateNextQuestion}}</h5>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" [name]="'question' + question.id" [(ngModel)]="question.activateNextQuestion"  [id]="'question'+ question.id" [value]="false">
+                                <label class="form-check-label" [for]="'question-'+ question.id">
+                                    False
+                                </label>
+                                
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" [name]="'question' + question.id" [(ngModel)]="question.activateNextQuestion"  [id]="'question'+ question.id" [value]="true">
+                                <label class="form-check-label" [for]="'question-'+ question.id">
+                                    True
+                                </label>
+                            </div>
+                        </div>
+
+                        <h4>Do you want to activate Next Section: Current - {{section.activateNextSection}}</h4>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" [name]="'section' + section.id" [(ngModel)]="section.activateNextSection"  [id]="'section'+ section.id" [value]="false">
+                            <label class="form-check-label" [for]="'section'+ section.id">
+                                False
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" [name]="'section' + section.id" [(ngModel)]="section.activateNextSection"  [id]="'section'+ section.id" [value]="true">
+                            <label class="form-check-label" [for]="'section'+ section.id">
+                                True
+                            </label>
+                        </div>
+                        <hr/>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

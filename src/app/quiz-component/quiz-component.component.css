@@ -1,0 +1,10 @@
+.quiz-component {
+    text-align: left;
+    margin: 40px 0;
+}
+
+@media only screen and (min-width: 601px) {
+    .quiz-component {
+        margin: 40px;
+    }
+}

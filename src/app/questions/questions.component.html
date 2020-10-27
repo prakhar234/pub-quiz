@@ -1,0 +1,12 @@
+<div class="row questions">
+    <div class="col-xs-12" *ngFor="let question of questions">
+        <app-question 
+            (onNextSection)="goToNextSection($event)" 
+            (onNextQuestion)="goToNextQuestion()" 
+            *ngIf="question.active" 
+            [question]="question" 
+            [lastQuestion]="lastQuestion"
+            [lastSection]="lastSection">
+        </app-question>
+    </div>
+</div>

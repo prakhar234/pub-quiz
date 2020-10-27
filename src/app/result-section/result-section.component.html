@@ -1,0 +1,30 @@
+<div class="result-section">
+    <div class="panel panel-default">
+        <div class="panel-body" >
+            <h4>Congratulations!! you have successfully completed the quiz.</h4>
+            <p>Please click on see result to check your score.</p>
+            <hr/>
+            <button type='button' class="btn btn-success" (click)="checkResult()">Check Result</button>
+        </div>
+    </div>
+
+    <div class="panel panel-default" *ngIf="userProfile">
+        <div class="panel-body" >
+            <h4>Name: {{userProfile.name}}</h4>
+            <div><span>Your score: </span><span class="score">{{score}}</span></div>
+            <hr/>
+            <div class="winners" *ngIf="winners.length > 3">
+                <p>Top Scorers:-</p>
+                <ul class="list">
+                    <li *ngFor="let user of winners">{{user.name +"-"+ user.score}}</li>
+                </ul>
+            </div>
+            <div class="losers"  *ngIf="losers.length > 3">
+                <p>Least Scorers:-</p>
+                <ul class="list">
+                    <li *ngFor="let user of losers">{{user.name +"-"+ user.score}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+.question label{
+    font-weight: normal;
+    margin-left: 10px;
+}
+
+.question .form-check.disabled label {
+    color: grey;
+}
+
+.time {
+    position: absolute;
+    font-size: 16px;
+    top:-10px;
+    right: 10px;
+}
+
+.time.red {
+    color: red;
+}
+
+.time.bold {
+    font-weight: 700;
+}

@@ -1,0 +1,34 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    font-family: "Barlow",Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: column;
+    background-color: #c5bcef;
+    background-image: url('./assets//images/quiz-background.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position-y: bottom;
+}
+
+hr {
+    border-top-color: #c5bcef;
+}
+
+button.btn-primary:hover,
+button.btn-success:hover {
+    transform: scale(1.2);
+    transition: all 0.3s linear;
+}
+
+.panel {
+    box-shadow: 0 0 10px 0 #c5bcef;
+    border-color: #c5bcef;
+}
+
+label{
+    font-weight: normal;
+    margin-left: 10px;
+}

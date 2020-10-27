@@ -1,0 +1,31 @@
+<div class="panel panel-default question" [@question]>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-xs-12">
+                <h4>{{(questionNumber) + ". " + question.question}}</h4>
+                <div class="form-check" [ngClass]="{'disabled': disabled}" *ngFor="let option of question.options">
+                    <input class="form-check-input" type="radio" name="answer" [disabled]="disabled" [(ngModel)]="selectedAnswer" (change)="onSelectAnswer(option.id)" [id]="'question'+ option.id" [value]="option.id">
+                    <label class="form-check-label" [for]="'question'+ option.id">
+                    {{option.name}}
+                    </label>
+                </div>
+                <div *ngIf="timeLeft" class="time" [ngClass]="{'red': timeLeft <= 20, 'bold': timeLeft <=10}">Time Left - 00:{{timeLeft}}</div>
+            </div>
+        </div>
+        <hr/>
+        <div class="row">
+            <div class="col-xs-12 col-sm-4">
+                <button *ngIf="!disabled && selectedAnswer != null" (click)="onSubmit()" type="button" class="btn btn-primary">Submit</button>
+                <button *ngIf="disabled || selectedAnswer === null" type="button" [disabled]="selectedAnswer" class="btn btn-disabled">Submit</button>
+                
+            </div>
+            <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+                <button *ngIf="question.activateNextQuestion && disabled" type="button" (click)="goToNextQuestion()" class="btn btn-success">Go to Next Question</button>
+                <button *ngIf="activateNextSection" type="button" (click)="goToNextSection()" class="btn btn-success">Go to Next Section</button>
+                <ng-content></ng-content>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
